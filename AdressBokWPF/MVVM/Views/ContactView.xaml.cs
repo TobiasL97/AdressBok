@@ -24,11 +24,11 @@ namespace AdressBokWPF.MVVM.Views
     /// </summary>
     public partial class ContactView : UserControl
     {
-        private readonly FileService fileService;
+        
         public ContactView()
         {
             InitializeComponent();
-            fileService= new FileService();
+            
         }
     }
 }

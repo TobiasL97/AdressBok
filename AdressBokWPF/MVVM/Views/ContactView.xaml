@@ -9,17 +9,17 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactViewModel}"
              mc:Ignorable="d"
              
+             FontSize="16"
              
-             
-             
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="720" d:DesignWidth="1280">
+    
     <Grid Margin="10" Background="white">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        
+
 
         <ListView ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" Grid.RowSpan="2"  Grid.Column="0">
             <ListView.ItemTemplate>
@@ -35,27 +35,27 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid Grid.Column="1" Grid.RowSpan="2">
+        <Grid Grid.Column="1" Grid.Row="0">
             <StackPanel Margin="10 0 10 0" Orientation="Vertical">
                 <Label Content="First Name:"/>
-                <TextBox Text="{Binding SelectedContact.FirstName}"/>
+                <TextBox Text="{Binding SelectedContact.FirstName}" Padding="5"/>
                 <Label Content="Last Name :"/>
-                <TextBox Text="{Binding SelectedContact.LastName}"/>
+                <TextBox Text="{Binding SelectedContact.LastName}" Padding="5"/>
                 <Label Content="Email: "/>
-                <TextBox Text="{Binding SelectedContact.Email}"/>
+                <TextBox Text="{Binding SelectedContact.Email}" Padding="5"/>
                 <Label Content="Phonenumber:"/>
-                <TextBox Text="{Binding SelectedContact.PhoneNumber}"/>
+                <TextBox Text="{Binding SelectedContact.PhoneNumber}" Padding="5"/>
                 <Label Content="Address:"/>
-                <TextBox Text="{Binding SelectedContact.Address}"/>
+                <TextBox Text="{Binding SelectedContact.Address}" Padding="5"/>
                 <Label Content="PostalCode:"/>
-                <TextBox Text="{Binding SelectedContact.PostalCode}"/>
+                <TextBox Text="{Binding SelectedContact.PostalCode}" Padding="5"/>
                 <Label Content="City:"/>
-                <TextBox Text="{Binding SelectedContact.City}"/>
+                <TextBox Text="{Binding SelectedContact.City}" Padding="5"/>
             </StackPanel>
         </Grid>
 
-        <Grid Margin="10" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
+        <Grid Margin="10" Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                 <Button VerticalAlignment="Bottom" FontSize="16" Command="{Binding DeleteContactCommand}"  Content="DELETE" Margin="0 0 0 0" Padding="5"/>
                 <Button  VerticalAlignment="Bottom" FontSize="16" Command="{Binding UpdateContactCommand}"  Content="UPDATE" Margin="10 0 0 0" Padding=" 5"/>
             </StackPanel>
