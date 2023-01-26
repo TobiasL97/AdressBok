@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdressBokWPF.MVVM.Models
+namespace WPFAdressBok.MVVM.Models
 {
     public class ContactModel
     {
@@ -18,8 +16,5 @@ namespace AdressBokWPF.MVVM.Models
         public string Address { get; set; } = null!;
         public string PostalCode { get; set; } = null!;
         public string City { get; set; } = null!;
-
-        public string DisplayName => $"{FirstName} {LastName}";
     }
-
 }

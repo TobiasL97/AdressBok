@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdressBokConsole", "AdressBokConsole\AdressBokConsole.csproj", "{687E7F4E-F6DC-4AC5-93E2-3BDE7EDF9298}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdressBokWPF", "AdressBokWPF\AdressBokWPF.csproj", "{6E2F85B8-0EEC-473F-83E0-2B55101EED01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdressBokWPF", "AdressBokWPF\AdressBokWPF.csproj", "{6E2F85B8-0EEC-473F-83E0-2B55101EED01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

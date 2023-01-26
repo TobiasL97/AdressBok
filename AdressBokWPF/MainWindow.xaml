@@ -9,21 +9,20 @@
         d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel}"
         
         
-        Background="#ededed"
         
         
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="10">
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid Margin="5">
         <Grid.RowDefinitions >
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-
-            <Button Command="{Binding ContactViewCommand}" Style="{StaticResource NavButton}"  Content="&#xf234;" Padding="10" HorizontalAlignment="Right" Background="DarkOliveGreen"/>
+            <Button Command="{Binding ContactViewCommand}" Style="{StaticResource NavButton}" Content="&#xf015;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 50 0"/>
+            <Button Command="{Binding AddContactViewCommand}" Style="{StaticResource NavButton}"  Content="&#xf234;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 20 0"/>
         </Grid>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">

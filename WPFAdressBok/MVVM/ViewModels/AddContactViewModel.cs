@@ -1,33 +1,17 @@
-﻿using AdressBokWPF.MVVM.Models;
-using AdressBokWPF.MVVM.Services;
-using AdressBokWPF.MVVM.Views;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
+using WPFAdressBok.MVVM.Models;
+using WPFAdressBok.Services;
 
-namespace AdressBokWPF.MVVM.ViewModels
+namespace WPFAdressBok.MVVM.ViewModels
 {
     public partial class AddContactViewModel : ObservableObject
     {
-
-        private readonly FileService fileService;
-        
-
-        public AddContactViewModel()
-        {
-            fileService = new FileService();
-
-            
-        }
-
-        
 
         [ObservableProperty]
         private string tb_FirstName = string.Empty;
@@ -51,17 +35,17 @@ namespace AdressBokWPF.MVVM.ViewModels
         private string tb_City = string.Empty;
 
         [RelayCommand]
-        public void Add()
+        private void AddContacts()
         {
-            fileService.AddContact(new ContactModel
+            ContactService.AddContact(new ContactModel
             {
-                FirstName = tb_FirstName,
-                LastName = tb_LastName,
-                Email = tb_Email,
-                PhoneNumber = tb_PhoneNumber,
-                Address = tb_Address,
-                PostalCode = tb_PostalCode,
-                City = tb_City
+                FirstName = Tb_FirstName,
+                LastName = Tb_LastName,
+                Email = Tb_Email,
+                PhoneNumber = Tb_PhoneNumber,
+                Address = Tb_Address,
+                PostalCode = Tb_PostalCode,
+                City = Tb_City
             });
 
             Tb_FirstName = string.Empty;
@@ -71,8 +55,6 @@ namespace AdressBokWPF.MVVM.ViewModels
             Tb_Address = string.Empty;
             Tb_PostalCode = string.Empty;
             Tb_City = string.Empty;
-
-            
         }
     }
 }

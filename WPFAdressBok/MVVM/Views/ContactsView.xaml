@@ -1,17 +1,12 @@
-﻿<UserControl x:Class="AdressBokWPF.MVVM.Views.ContactView"
+﻿<UserControl x:Class="WPFAdressBok.MVVM.Views.ContactsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:viewmodels="clr-namespace:AdressBokWPF.MVVM.ViewModels" 
-             xmlns:models="clr-namespace:AdressBokWPF.MVVM.Models"
-             
-             d:DataContext="{d:DesignInstance Type=viewmodels:ContactViewModel}"
-             mc:Ignorable="d"
-             
-             
-             
-             
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodels="clr-namespace:WPFAdressBok.MVVM.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}"
+             xmlns:local="clr-namespace:WPFAdressBok.MVVM.Views"
+             mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="10" Background="white">
         <Grid.ColumnDefinitions>
@@ -19,17 +14,17 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        
 
-        <ListView ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" Grid.RowSpan="2"  Grid.Column="0">
+
+        <ListView ItemsSource="{Binding Contacts}"  Grid.RowSpan="2"  Grid.Column="0">
             <ListView.ItemTemplate>
                 <DataTemplate DataType="models:ContactModel">
                     <StackPanel Grid.Column="0">
                         <TextBlock>
-                            <Run Text="{Binding FirstName}"/>
-                            <Run Text="{Binding LastName}"/>
+                            <Run />
+                            <Run />
                         </TextBlock>
-                        <TextBlock x:Name="tb_Email" Text="{Binding Email}"/>
+                        <TextBlock />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -38,19 +33,19 @@
         <Grid Grid.Column="1" Grid.RowSpan="2">
             <StackPanel Margin="10 0 10 0" Orientation="Vertical">
                 <Label Content="First Name:"/>
-                <TextBox Text="{Binding SelectedContact.FirstName}"/>
+                <TextBox Text=""/>
                 <Label Content="Last Name :"/>
-                <TextBox Text="{Binding SelectedContact.LastName}"/>
+                <TextBox Text=""/>
                 <Label Content="Email: "/>
-                <TextBox Text="{Binding SelectedContact.Email}"/>
+                <TextBox Text="}"/>
                 <Label Content="Phonenumber:"/>
-                <TextBox Text="{Binding SelectedContact.PhoneNumber}"/>
+                <TextBox Text=""/>
                 <Label Content="Address:"/>
-                <TextBox Text="{Binding SelectedContact.Address}"/>
+                <TextBox Text=""/>
                 <Label Content="PostalCode:"/>
-                <TextBox Text="{Binding SelectedContact.PostalCode}"/>
+                <TextBox Text=""/>
                 <Label Content="City:"/>
-                <TextBox Text="{Binding SelectedContact.City}"/>
+                <TextBox Text=""/>
             </StackPanel>
         </Grid>
 

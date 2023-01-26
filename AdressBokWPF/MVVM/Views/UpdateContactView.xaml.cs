@@ -1,9 +1,5 @@
-﻿using AdressBokWPF.MVVM.Models;
-using AdressBokWPF.MVVM.Services;
-using AdressBokWPF.MVVM.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +16,13 @@ using System.Windows.Shapes;
 namespace AdressBokWPF.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for ContactView.xaml
+    /// Interaction logic for UpdateContactView.xaml
     /// </summary>
-    public partial class ContactView : UserControl
+    public partial class UpdateContactView : UserControl
     {
-        private readonly FileService fileService;
-        public ContactView()
+        public UpdateContactView()
         {
             InitializeComponent();
-            fileService= new FileService();
         }
     }
 }

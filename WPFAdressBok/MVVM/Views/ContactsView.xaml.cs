@@ -1,9 +1,5 @@
-﻿using AdressBokWPF.MVVM.Models;
-using AdressBokWPF.MVVM.Services;
-using AdressBokWPF.MVVM.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AdressBokWPF.MVVM.Views
+namespace WPFAdressBok.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for ContactView.xaml
+    /// Interaction logic for ContactsView.xaml
     /// </summary>
-    public partial class ContactView : UserControl
+    public partial class ContactsView : UserControl
     {
-        private readonly FileService fileService;
-        public ContactView()
+        public ContactsView()
         {
             InitializeComponent();
-            fileService= new FileService();
         }
     }
 }

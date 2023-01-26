@@ -10,16 +10,20 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using AdressBokWPF.MVVM.Models;
+using System.IO.Packaging;
+using TechTalk.SpecFlow.Analytics.UserId;
 
 namespace AdressBokWPF.MVVM.Services
 {
-    class FileService
+    public class FileService
     {
-        private string filePath = @$"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\ContactWPF.json";
+        private readonly string filePath = @$"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\ContactWPF.json";
         private List<ContactModel> contacts;
+
 
         public FileService()
         {
+            
             Read();
         }
         private void Read()
@@ -32,7 +36,7 @@ namespace AdressBokWPF.MVVM.Services
             catch { contacts = new List<ContactModel>(); }
         }
 
-        private void Save()
+        public void Save()
         {
             using var sw = new StreamWriter(filePath);
             sw.WriteLine(JsonConvert.SerializeObject(contacts));
@@ -42,6 +46,18 @@ namespace AdressBokWPF.MVVM.Services
         {
             contacts.Add(Contact);
             Save();
+        }
+
+        public ObservableCollection<ContactModel> Contacts()
+        {
+            var items = new ObservableCollection<ContactModel>();
+            foreach (var contact in contacts)
+            {
+                items.Add(contact);
+
+            }
+            
+            return items;
         }
     }
 }

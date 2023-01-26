@@ -1,12 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <FontFamily x:Key="FontAwesome-Regular">/Assets/Fonts/fa-regular-400.ttf#Font Awesome 6 Pro Regular</FontFamily>
+    <FontFamily x:Key="FontAwesome-Solid">/Assets/Fonts/fa-Solid-900.ttf#Font Awesome 6 Pro Solid</FontFamily>
+    
     <Style x:Key="NavButton" TargetType="Button">
         <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Regular}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Name="NavBtn" CornerRadius="8" Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}">
+                    <Border Name="NavBtn" CornerRadius="8" Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}" Background="#F5F5F5">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
