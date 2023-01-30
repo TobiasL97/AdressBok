@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdressBokConsole.Models
 {
-    internal class Contact : IContact
+    public class Contact : IContact
     {
         public Guid ContactId { get; } = Guid.NewGuid();
         public string FirstName { get; set; } = null!;

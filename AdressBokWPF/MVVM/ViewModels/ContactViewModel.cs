@@ -31,13 +31,14 @@ namespace AdressBokWPF.MVVM.ViewModels
             contacts = fileService.Contacts();
         }
 
-        
+        [ObservableProperty]
+        public Visibility g_ContactDetails = Visibility.Collapsed;
 
         [ObservableProperty]
         public ContactModel selectedContact = null!;
 
         [ObservableProperty]
-        private ObservableCollection<ContactModel> contacts;
+        private ObservableCollection<ContactModel> contacts = new ObservableCollection<ContactModel>();
 
         [ObservableProperty]
         private string tb_FirstName = string.Empty;
@@ -87,24 +88,7 @@ namespace AdressBokWPF.MVVM.ViewModels
         [RelayCommand]
         private void UpdateContact()
         {
-            if (SelectedContact != null)
-            {
-                for (int i = 0; i < contacts.Count; i++)
-                {
-                    if (contacts[i].ContactId == SelectedContact.ContactId)
-                    {
-                        contacts[i].FirstName = SelectedContact.FirstName;
-                        contacts[i].LastName = SelectedContact.LastName;
-                        contacts[i].Email = SelectedContact.Email;
-                        contacts[i].PhoneNumber = SelectedContact.PhoneNumber;
-                        contacts[i].Address = SelectedContact.Address;
-                        contacts[i].PostalCode = SelectedContact.PostalCode;
-                        contacts[i].City = SelectedContact.City;
-
-                        fileService.Save();
-                    }
-                }
-            }
+            g_ContactDetails = Visibility.Visible;
         }
     }
 }

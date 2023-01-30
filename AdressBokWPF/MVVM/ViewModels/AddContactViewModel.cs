@@ -24,7 +24,6 @@ namespace AdressBokWPF.MVVM.ViewModels
         {
             fileService = new FileService();
 
-            
         }
 
         
@@ -51,7 +50,7 @@ namespace AdressBokWPF.MVVM.ViewModels
         private string tb_City = string.Empty;
 
         [RelayCommand]
-        public void Add()
+        public void Add(ContactModel contactModel)
         {
             fileService.AddContact(new ContactModel
             {

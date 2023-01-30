@@ -19,6 +19,11 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
 
 
         <ListView ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" Grid.RowSpan="2"  Grid.Column="0">
@@ -35,7 +40,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid Grid.Column="1" Grid.Row="0">
+        <Grid Grid.Column="1" Grid.Row="0" Visibility="{Binding g_ContactDetails}">
             <StackPanel Margin="10 0 10 0" Orientation="Vertical">
                 <Label Content="First Name:"/>
                 <TextBox Text="{Binding SelectedContact.FirstName}" Padding="5"/>
@@ -51,6 +56,25 @@
                 <TextBox Text="{Binding SelectedContact.PostalCode}" Padding="5"/>
                 <Label Content="City:"/>
                 <TextBox Text="{Binding SelectedContact.City}" Padding="5"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <StackPanel Margin="10 0 10 0" Orientation="Vertical">
+                <Label Content="First Name:"/>
+                <TextBlock Text="{Binding SelectedContact.FirstName}" Padding="5"/>
+                <Label Content="Last Name :"/>
+                <TextBlock Text="{Binding SelectedContact.LastName}" Padding="5"/>
+                <Label Content="Email: "/>
+                <TextBlock Text="{Binding SelectedContact.Email}" Padding="5"/>
+                <Label Content="Phonenumber:"/>
+                <TextBlock Text="{Binding SelectedContact.PhoneNumber}" Padding="5"/>
+                <Label Content="Address:"/>
+                <TextBlock Text="{Binding SelectedContact.Address}" Padding="5"/>
+                <Label Content="PostalCode:"/>
+                <TextBlock Text="{Binding SelectedContact.PostalCode}" Padding="5"/>
+                <Label Content="City:"/>
+                <TextBlock Text="{Binding SelectedContact.City}" Padding="5"/>
             </StackPanel>
         </Grid>
 
