@@ -25,10 +25,10 @@ namespace AdressBokWPF.MVVM.Views
     public partial class ContactView : UserControl
     {
         
+
         public ContactView()
         {
             InitializeComponent();
-            
         }
     }
 }

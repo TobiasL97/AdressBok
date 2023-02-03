@@ -14,15 +14,18 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid Margin="5">
+    <Grid Margin="10">
         <Grid.RowDefinitions >
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <Button Command="{Binding ContactViewCommand}" Style="{StaticResource NavButton}" Content="&#xf015;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 50 0"/>
-            <Button Command="{Binding AddContactViewCommand}" Style="{StaticResource NavButton}"  Content="&#xf234;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 20 0"/>
+        <Grid Grid.Row="0" Margin="0 0 0 10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Command="{Binding ContactViewCommand}" Style="{StaticResource NavButton}" Content="&#xf015;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 20 0" />
+                <Button Command="{Binding AddContactViewCommand}" Style="{StaticResource NavButton}"  Content="&#xf234;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 3 0"/>
+                <Button Command="{Binding UpdateContactCommand}" Style="{StaticResource NavButton}"  Content="&#xf4ff;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 5 0"/>
+            </StackPanel>
         </Grid>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
@@ -32,6 +35,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewModels:AddContactViewModel}">
                     <views:AddContactView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:UpdateContactViewModel}">
+                    <views:UpdateContactView />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

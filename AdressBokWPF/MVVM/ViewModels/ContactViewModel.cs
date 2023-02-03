@@ -10,9 +10,12 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media.Animation;
 using TechTalk.SpecFlow.Analytics.UserId;
 using FileService = AdressBokWPF.MVVM.Services.FileService;
@@ -32,13 +35,13 @@ namespace AdressBokWPF.MVVM.ViewModels
         }
 
         [ObservableProperty]
-        public Visibility g_ContactDetails = Visibility.Collapsed;
+        public bool isTextBoxVisible = false;
 
         [ObservableProperty]
-        public ContactModel selectedContact = null!;
+        public bool isTextBlockVisible = true;
 
         [ObservableProperty]
-        private ObservableCollection<ContactModel> contacts = new ObservableCollection<ContactModel>();
+        private ContactModel selectedContact = null!;
 
         [ObservableProperty]
         private string tb_FirstName = string.Empty;
@@ -60,6 +63,12 @@ namespace AdressBokWPF.MVVM.ViewModels
 
         [ObservableProperty]
         private string tb_City = string.Empty;
+
+        [ObservableProperty]
+        private string firstName = string.Empty;
+
+        [ObservableProperty]
+        private ObservableCollection<ContactModel> contacts;
 
         [RelayCommand]
         private void DeleteContact()
@@ -86,9 +95,33 @@ namespace AdressBokWPF.MVVM.ViewModels
         }
 
         [RelayCommand]
+        private void SaveContact()
+        {
+
+        }
+
+
+        [RelayCommand]
         private void UpdateContact()
         {
-            g_ContactDetails = Visibility.Visible;
+            if (SelectedContact != null)
+            {
+                IsTextBlockVisible = false;
+                IsTextBoxVisible = true;
+
+                for (int i = 0; i < contacts.Count; i++)
+                {
+                    if (contacts[i].ContactId == SelectedContact.ContactId)
+                    {
+                        contacts[i].FirstName = Tb_FirstName;
+                    }
+                }
+
+
+
+
+            }
+            
         }
     }
 }
