@@ -28,12 +28,6 @@ namespace AdressBokWPF.MVVM.ViewModels
             CurrentViewModel = new ContactViewModel();
         }
 
-        [RelayCommand]
-        private void UpdateContact()
-        {
-            CurrentViewModel = new UpdateContactViewModel();
-        }
-
         public MainViewModel()
         {
             CurrentViewModel = new ContactViewModel();

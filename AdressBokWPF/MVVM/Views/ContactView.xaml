@@ -26,7 +26,7 @@
 
 
 
-        <ListView ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" x:Name="lv_ContactsList"  Grid.RowSpan="2"  Grid.Column="0">
+        <ListView ItemsSource="{Binding Contacts, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedContact}" x:Name="lv_ContactsList"  Grid.RowSpan="2"  Grid.Column="0">
             <ListView.ItemTemplate>
                 <DataTemplate DataType="{x:Type models:ContactModel}">
                     <StackPanel Grid.Column="0" Orientation="Vertical" >
@@ -48,27 +48,27 @@
                 
                 <Label Content="Last Name :" FontWeight="SemiBold"/>
                 <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SelectedContact.LastName}" Padding="3" Margin="20 0 0 10" FontSize="20"/>
-                <TextBox Style="{StaticResource TextBox}" Text="{Binding SelectedContact.LastName}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
+                <TextBox Style="{StaticResource TextBox}" Text="{Binding Tb_LastName}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
                 
                 <Label Content="Email: " FontWeight="SemiBold"/>
                 <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SelectedContact.Email}" Padding="3" Margin="20 0 0 10" FontSize="20"/>
-                <TextBox Style="{StaticResource TextBox}" Text="{Binding SelectedContact.Email}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
+                <TextBox Style="{StaticResource TextBox}" Text="{Binding Tb_Email}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
                 
                 <Label Content="Phonenumber:" FontWeight="SemiBold"/>
                 <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SelectedContact.PhoneNumber}" Padding="3" Margin="20 0 0 10" FontSize="20"/>
-                <TextBox Style="{StaticResource TextBox}" Text="{Binding SelectedContact.PhoneNumber}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
+                <TextBox Style="{StaticResource TextBox}" Text="{Binding Tb_PhoneNumber}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
 
                 <Label Content="Address:" FontWeight="SemiBold"/>
                 <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SelectedContact.Address}" Padding="3" Margin="20 0 0 10" FontSize="20"/>
-                <TextBox Style="{StaticResource TextBox}" Text="{Binding SelectedContact.Address}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
+                <TextBox Style="{StaticResource TextBox}" Text="{Binding Tb_Address}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
 
                 <Label Content="PostalCode:" FontWeight="SemiBold"/>
                 <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SelectedContact.PostalCode}" Padding="3" Margin="20 0 0 10" FontSize="20"/>
-                <TextBox Style="{StaticResource TextBox}" Text="{Binding SelectedContact.PostalCode}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
+                <TextBox Style="{StaticResource TextBox}" Text="{Binding Tb_PostalCode}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
                 
                 <Label Content="City:" FontWeight="SemiBold"/>
                 <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SelectedContact.City}" Padding="3" Margin="20 0 0 0" FontSize="20"/>
-                <TextBox Style="{StaticResource TextBox}" Text="{Binding SelectedContact.City}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
+                <TextBox Style="{StaticResource TextBox}" Text="{Binding Tb_City}"  Padding="3" Margin="20 0 0 10" FontSize="20"/>
             </StackPanel>
         </Grid>
         
@@ -77,9 +77,9 @@
         <Grid Margin="10" Grid.Column="1" Grid.Row="1">
             <StackPanel Orientation="Horizontal">
                 <Button VerticalAlignment="Bottom" FontSize="16" Command="{Binding DeleteContactCommand}" Content="DELETE" Margin="0 0 0 0" Padding="5"/>
-                <Button VerticalAlignment="Bottom" FontSize="16" Command="{Binding UpdateContactCommand}" Content="UPDATE" Margin="0 0 0 0" Padding="5"/>
+                <Button Style="{StaticResource UpdateBtn}" VerticalAlignment="Bottom" FontSize="16" Command="{Binding UpdateContactCommand}" Content="UPDATE" Margin="20 0 0 0" Padding="5"/>
                 <Button Style="{StaticResource SaveBtn}" VerticalAlignment="Bottom" FontSize="16" Command="{Binding SaveContactCommand}"  Content="SAVE" Margin="100 0 0 0" Padding="5"/>
-                <Button Style="{StaticResource SaveBtn}" VerticalAlignment="Bottom" FontSize="16" Command="{Binding SaveContactCommand}"  Content="CANCEL" Margin="100 0 0 0" Padding="5"/>
+                <Button Style="{StaticResource SaveBtn}" VerticalAlignment="Bottom" FontSize="16" Command="{Binding CancelCommand}"  Content="CANCEL" Margin="20 0 0 0" Padding="5"/>
             </StackPanel>
         </Grid>
 

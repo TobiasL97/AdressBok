@@ -36,5 +36,17 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="UpdateBtn" TargetType="Button">
+        <Setter Property="Visibility" Value="Visible"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsTextBoxVisible}" Value="true">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsTextBoxVisible}" Value="false">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
     
 </ResourceDictionary>

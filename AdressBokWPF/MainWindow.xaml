@@ -24,7 +24,6 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Button Command="{Binding ContactViewCommand}" Style="{StaticResource NavButton}" Content="&#xf015;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 20 0" />
                 <Button Command="{Binding AddContactViewCommand}" Style="{StaticResource NavButton}"  Content="&#xf234;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 3 0"/>
-                <Button Command="{Binding UpdateContactCommand}" Style="{StaticResource NavButton}"  Content="&#xf4ff;" Padding="15" FontSize="16" HorizontalAlignment="Right" Margin="0 0 5 0"/>
             </StackPanel>
         </Grid>
 
@@ -35,9 +34,6 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewModels:AddContactViewModel}">
                     <views:AddContactView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModels:UpdateContactViewModel}">
-                    <views:UpdateContactView />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

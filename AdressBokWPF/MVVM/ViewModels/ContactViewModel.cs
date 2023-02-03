@@ -65,9 +65,6 @@ namespace AdressBokWPF.MVVM.ViewModels
         private string tb_City = string.Empty;
 
         [ObservableProperty]
-        private string firstName = string.Empty;
-
-        [ObservableProperty]
         private ObservableCollection<ContactModel> contacts;
 
         [RelayCommand]
@@ -95,8 +92,30 @@ namespace AdressBokWPF.MVVM.ViewModels
         }
 
         [RelayCommand]
+        private void Cancel()
+        {
+            
+            IsTextBoxVisible = false;
+            IsTextBlockVisible = true;
+        }
+
+        [RelayCommand]
         private void SaveContact()
         {
+            SelectedContact.FirstName = Tb_FirstName;
+            SelectedContact.LastName = Tb_LastName;
+            SelectedContact.Email = Tb_Email;
+            SelectedContact.PhoneNumber = Tb_PhoneNumber;
+            SelectedContact.Address = Tb_Address;
+            SelectedContact.PostalCode = Tb_PostalCode;
+            SelectedContact.City = Tb_City;
+
+            fileService.Save();
+
+            SelectedContact = null!;
+
+            IsTextBlockVisible = true;
+            IsTextBoxVisible = false;
 
         }
 
@@ -111,15 +130,17 @@ namespace AdressBokWPF.MVVM.ViewModels
 
                 for (int i = 0; i < contacts.Count; i++)
                 {
-                    if (contacts[i].ContactId == SelectedContact.ContactId)
+                    if (SelectedContact.ContactId == contacts[i].ContactId)
                     {
-                        contacts[i].FirstName = Tb_FirstName;
+                        Tb_FirstName = Contacts[i].FirstName;
+                        Tb_LastName = Contacts[i].LastName;
+                        Tb_Email = Contacts[i].Email;
+                        Tb_PhoneNumber = Contacts[i].PhoneNumber;
+                        Tb_Address = Contacts[i].Address;
+                        Tb_PostalCode = Contacts[i].PostalCode;
+                        Tb_City = Contacts[i].City;
                     }
                 }
-
-
-
-
             }
             
         }
