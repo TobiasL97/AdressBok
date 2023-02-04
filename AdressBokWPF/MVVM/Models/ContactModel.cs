@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AdressBokWPF.MVVM.Models
 {
-    public class ContactModel
+    public class ContactModel : ObservableObject
     {
         public Guid ContactId { get; } = Guid.NewGuid();
         public string FirstName { get; set; } = null!;

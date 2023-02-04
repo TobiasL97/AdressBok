@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -15,9 +16,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using TechTalk.SpecFlow.Analytics.UserId;
+using static TechTalk.SpecFlow.Configuration.AppConfig.GeneratorConfigElement;
 using FileService = AdressBokWPF.MVVM.Services.FileService;
 
 namespace AdressBokWPF.MVVM.ViewModels
@@ -32,6 +35,7 @@ namespace AdressBokWPF.MVVM.ViewModels
         {
             fileService = new FileService();
             contacts = fileService.Contacts();
+
         }
 
         [ObservableProperty]
@@ -65,7 +69,10 @@ namespace AdressBokWPF.MVVM.ViewModels
         private string tb_City = string.Empty;
 
         [ObservableProperty]
-        private ObservableCollection<ContactModel> contacts;
+        private  ObservableCollection<ContactModel> contacts;
+       
+        
+        
 
         [RelayCommand]
         private void DeleteContact()
@@ -77,7 +84,7 @@ namespace AdressBokWPF.MVVM.ViewModels
                 {
                     for (int i = 0; i < contacts.Count; i++)
                     {
-                        if (contacts[i].ContactId == SelectedContact.ContactId)
+                        if (Contacts[i].ContactId == SelectedContact.ContactId)
                         {
                             contacts.Remove(SelectedContact);
                             using var sw = new StreamWriter(filePath);
@@ -102,13 +109,23 @@ namespace AdressBokWPF.MVVM.ViewModels
         [RelayCommand]
         private void SaveContact()
         {
-            SelectedContact.FirstName = Tb_FirstName;
-            SelectedContact.LastName = Tb_LastName;
-            SelectedContact.Email = Tb_Email;
-            SelectedContact.PhoneNumber = Tb_PhoneNumber;
-            SelectedContact.Address = Tb_Address;
-            SelectedContact.PostalCode = Tb_PostalCode;
-            SelectedContact.City = Tb_City;
+            ContactModel contact = new ContactModel();
+            contact.FirstName = SelectedContact.FirstName;
+            contact.LastName = SelectedContact.LastName;
+            contact.Email = SelectedContact.Email;
+            contact.PhoneNumber = SelectedContact.PhoneNumber;
+            contact.Address = SelectedContact.Address;
+            contact.PostalCode = SelectedContact.PostalCode;
+            contact.City = SelectedContact.City;
+
+
+
+            int index = Contacts.IndexOf(SelectedContact);
+
+            Contacts.RemoveAt(index);
+            Contacts.Insert(index, contact);
+
+
 
             fileService.Save();
 
@@ -117,6 +134,7 @@ namespace AdressBokWPF.MVVM.ViewModels
             IsTextBlockVisible = true;
             IsTextBoxVisible = false;
 
+            
         }
 
 
@@ -127,20 +145,6 @@ namespace AdressBokWPF.MVVM.ViewModels
             {
                 IsTextBlockVisible = false;
                 IsTextBoxVisible = true;
-
-                for (int i = 0; i < contacts.Count; i++)
-                {
-                    if (SelectedContact.ContactId == contacts[i].ContactId)
-                    {
-                        Tb_FirstName = Contacts[i].FirstName;
-                        Tb_LastName = Contacts[i].LastName;
-                        Tb_Email = Contacts[i].Email;
-                        Tb_PhoneNumber = Contacts[i].PhoneNumber;
-                        Tb_Address = Contacts[i].Address;
-                        Tb_PostalCode = Contacts[i].PostalCode;
-                        Tb_City = Contacts[i].City;
-                    }
-                }
             }
             
         }
